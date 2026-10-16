@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lab Mate - Login</title>
+
+```
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: Arial, sans-serif;
+    }
+
+    body {
+        min-height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background: #f4f7fb;
+    }
+
+    .login-container {
+        width: 100%;
+        max-width: 420px;
+        background: white;
+        padding: 40px;
+        border-radius: 15px;
+        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+    }
+
+    .logo {
+        text-align: center;
+        margin-bottom: 10px;
+        font-size: 32px;
+        font-weight: bold;
+        color: #2563eb;
+    }
+
+    .subtitle {
+        text-align: center;
+        color: #666;
+        margin-bottom: 30px;
+    }
+
+    .form-group {
+        margin-bottom: 20px;
+    }
+
+    label {
+        display: block;
+        margin-bottom: 8px;
+        font-weight: bold;
+        color: #333;
+    }
+
+    input {
+        width: 100%;
+        padding: 13px;
+        border: 1px solid #d1d5db;
+        border-radius: 8px;
+        font-size: 15px;
+        outline: none;
+    }
+
+    input:focus {
+        border-color: #2563eb;
+    }
+
+    .login-btn {
+        width: 100%;
+        padding: 13px;
+        border: none;
+        border-radius: 8px;
+        background: #2563eb;
+        color: white;
+        font-size: 16px;
+        font-weight: bold;
+        cursor: pointer;
+    }
+
+    .login-btn:hover {
+        background: #1d4ed8;
+    }
+
+    .login-btn:disabled {
+        background: #93c5fd;
+        cursor: not-allowed;
+    }
+
+    .message {
+        margin-top: 15px;
+        text-align: center;
+        font-size: 14px;
+        font-weight: bold;
+    }
+
+    .signup-text {
+        text-align: center;
+        margin-top: 22px;
+        color: #666;
+    }
+
+    .signup-text a {
+        color: #2563eb;
+        text-decoration: none;
+        font-weight: bold;
+    }
+</style>
+```
+
+</head>
+
+<body>
+
+<div class="login-container">
+
+```
+<div class="logo">Lab Mate</div>
+
+<p class="subtitle">
+    Welcome back!
+</p>
+
+<form id="loginForm">
+
+    <div class="form-group">
+
+        <label for="username">
+            Username or Email
+        </label>
+
+        <input
+            type="text"
+            id="username"
+            placeholder="Enter username or email"
+            required
+        >
+
+    </div>
+
+
+    <div class="form-group">
+
+        <label for="password">
+            Password
+        </label>
+
+        <input
+            type="password"
+            id="password"
+            placeholder="Enter your password"
+            required
+        >
+
+    </div>
+
+
+    <button
+        type="submit"
+        class="login-btn"
+        id="loginButton"
+    >
+        Login
+    </button>
+
+
+    <div
+        id="message"
+        class="message"
+    ></div>
+
+</form>
+
+
+<p class="signup-text">
+
+    Don't have an account?
+
+    <a href="/signup">
+        Create Account
+    </a>
+
+</p>
+```
+
+</div>
+
+<script>
+
+document
+    .getElementById("loginForm")
+    .addEventListener("submit", async function(event) {
+
+        event.preventDefault();
+
+
+        const username =
+            document.getElementById("username").value.trim();
+
+        const password =
+            document.getElementById("password").value;
+
+
+        const message =
+            document.getElementById("message");
+
+        const button =
+            document.getElementById("loginButton");
+
+
+        button.disabled = true;
+
+        button.textContent = "Logging in...";
+
+
+        try {
+
+            const response = await fetch(
+                "/api/login",
+                {
+                    method: "POST",
+
+                    headers: {
+                        "Content-Type": "application/json"
+                    },
+
+                    body: JSON.stringify({
+                        username: username,
+                        password: password
+                    })
+                }
+            );
+
+
+            const data = await response.json();
+
+
+            if (response.ok) {
+
+                message.textContent =
+                    "Login successful!";
+
+                message.style.color = "green";
+
+
+                setTimeout(function() {
+
+                    window.location.href = "/";
+
+                }, 700);
+
+            }
+
+            else {
+
+                message.textContent =
+                    data.error || "Login failed.";
+
+                message.style.color = "red";
+
+                button.disabled = false;
+
+                button.textContent = "Login";
+            }
+
+        }
+
+        catch (error) {
+
+            message.textContent =
+                "Could not connect to server.";
+
+            message.style.color = "red";
+
+            button.disabled = false;
+
+            button.textContent = "Login";
+        }
+
+    });
+
+</script>
+
+</body>
+</html>

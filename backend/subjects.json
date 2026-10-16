@@ -1,0 +1,32 @@
+[
+    {
+        "id": 1,
+        "name": "Digital Logic Design",
+        "code": "DLD"
+    },
+    {
+        "id": 2,
+        "name": "Computer Programming",
+        "code": "Programming"
+    },
+    {
+        "id": 3,
+        "name": "Electrical Engineering",
+        "code": "EE Lab"
+    },
+    {
+        "id": 4,
+        "name": "Electronics",
+        "code": "Electronics Lab"
+    },
+    {
+        "id": 5,
+        "name": "Artificial Intelligence",
+        "code": "AI Lab"
+    },
+    {
+        "id": 6,
+        "name": "Data Structures",
+        "code": "DSA"
+    }
+]

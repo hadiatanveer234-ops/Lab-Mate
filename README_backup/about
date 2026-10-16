@@ -1,0 +1,38 @@
+# Lab Mate | Student Lab Companion
+
+## About the Project
+Lab Mate is a student lab companion web application designed to help students organize their academic tasks, subjects, and notes in one place.
+
+This project was developed to practice frontend development, backend development, API integration, and data management.
+
+## Features
+- User signup and login
+- Task management
+- Subject management
+- Notes management
+- My Account section
+- Dark mode
+- Flask backend with JSON-based data storage
+
+## Technologies Used
+- HTML
+- CSS
+- JavaScript
+- Python
+- Flask
+- JSON
+
+## Project Structure
+- `backend/` — Flask application and JSON data files
+- `frontend/` — HTML, CSS, and JavaScript files
+- `README.md` — Project documentation
+
+## How to Run
+1. Open the project folder in VS Code.
+2. Activate the Python virtual environment.
+3. Install the required dependencies.
+4. Run the Flask application using `app.py`.
+5. Open the local address displayed in the terminal.
+
+## Purpose
+This project was created as a hands-on learning project to develop practical web development and software engineering skills.

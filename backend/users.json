@@ -1,0 +1,9 @@
+[
+    {
+        "id": 1,
+        "name": "Hadia",
+        "username": "hadia",
+        "email": "hadia@test.com",
+        "password": "scrypt:32768:8:1$brmD4yQGOxT2KyMA$87dfe7eee67ff2996e655efb57f700369057bbb3f31d67cc196063e8e507b0b43513ea73578ce91ff7d8fc7bd6d6f455ee1a2daf93d2f5ec06c1a5fb4f72569c"
+    }
+]

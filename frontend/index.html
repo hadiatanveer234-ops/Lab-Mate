@@ -1,0 +1,486 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lab Mate | Student Lab Companion</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- SIDEBAR -->
+    <aside class="sidebar">
+
+        <div class="logo">
+            <span>🧪</span>
+            <div>
+                <h2>Lab Mate</h2>
+                <small>Student Companion</small>
+            </div>
+        </div>
+
+        <nav>
+            <button class="nav-btn active" data-section="dashboard">
+                🏠 Dashboard
+            </button>
+
+            <button class="nav-btn" data-section="tasks">
+                ✅ Lab Tasks
+            </button>
+
+            <button class="nav-btn" data-section="subjects">
+                📚 Subjects
+            </button>
+
+            <button class="nav-btn" data-section="notes">
+                📝 Notes
+            </button>
+
+            <button class="nav-btn" data-section="progress">
+                📊 Progress
+            </button>
+
+            <button class="nav-btn" data-section="account">
+                👤 My Account
+            </button>
+        </nav>
+
+        <div class="sidebar-bottom">
+
+            <button id="themeBtn" class="theme-btn">
+                🌙 Dark Mode
+            </button>
+
+            <button id="logoutBtn" class="theme-btn">
+                🚪 Logout
+            </button>
+
+            <p>Lab Mate © 2026</p>
+
+        </div>
+
+    </aside>
+
+    <!-- MAIN CONTENT -->
+    <main class="main-content">
+
+        <!-- TOP BAR -->
+        <header class="topbar">
+
+            <div>
+                <p class="small-text">Welcome back 👋</p>
+                <h1 id="pageTitle">Dashboard</h1>
+            </div>
+
+            <div class="date-box">
+                📅 <span id="currentDate"></span>
+            </div>
+
+        </header>
+
+        <!-- DASHBOARD -->
+        <section id="dashboard" class="page-section active-section">
+
+            <div class="hero">
+
+                <div>
+                    <p class="hero-label">
+                        YOUR LAB COMMAND CENTER
+                    </p>
+
+                    <h2>
+                        Stay organized.<br>
+                        Complete your labs.
+                    </h2>
+
+                    <p>
+                        Manage your lab tasks, subjects, notes and
+                        academic progress in one place.
+                    </p>
+
+                    <button class="primary-btn" id="heroAddTask">
+                        + Add New Task
+                    </button>
+                </div>
+
+                <div class="hero-icon">🧪</div>
+
+            </div>
+
+            <!-- STATISTICS -->
+            <div class="stats-grid">
+
+                <div class="stat-card">
+                    <div class="stat-icon">📋</div>
+                    <div>
+                        <h3 id="totalTasks">0</h3>
+                        <p>Total Tasks</p>
+                    </div>
+                </div>
+
+                <div class="stat-card">
+                    <div class="stat-icon">⏳</div>
+                    <div>
+                        <h3 id="pendingTasks">0</h3>
+                        <p>Pending</p>
+                    </div>
+                </div>
+
+                <div class="stat-card">
+                    <div class="stat-icon">✅</div>
+                    <div>
+                        <h3 id="completedTasks">0</h3>
+                        <p>Completed</p>
+                    </div>
+                </div>
+
+                <div class="stat-card">
+                    <div class="stat-icon">📈</div>
+                    <div>
+                        <h3 id="progressPercent">0%</h3>
+                        <p>Progress</p>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- DASHBOARD GRID -->
+            <div class="dashboard-grid">
+
+                <div class="panel">
+
+                    <div class="panel-header">
+                        <div>
+                            <h3>Recent Tasks</h3>
+                            <p>Your latest lab work</p>
+                        </div>
+
+                        <button class="text-btn" data-section-link="tasks">
+                            View All →
+                        </button>
+                    </div>
+
+                    <div id="recentTasks" class="task-list">
+                        <!-- Tasks are added by JavaScript -->
+                    </div>
+
+                </div>
+
+                <div class="panel">
+
+                    <div class="panel-header">
+                        <div>
+                            <h3>Overall Progress</h3>
+                            <p>Keep moving forward 🚀</p>
+                        </div>
+                    </div>
+
+                    <div class="progress-circle-container">
+                        <div class="progress-circle">
+                            <span id="circlePercent">0%</span>
+                        </div>
+                    </div>
+
+                    <p class="progress-message" id="progressMessage">
+                        Start adding your lab tasks!
+                    </p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+        <!-- LAB TASKS -->
+        <section id="tasks" class="page-section">
+
+            <div class="section-heading">
+
+                <div>
+                    <h2>Lab Tasks</h2>
+                    <p>Manage your experiments and assignments.</p>
+                </div>
+
+                <button class="primary-btn" id="openTaskModal">
+                    + Add Task
+                </button>
+
+            </div>
+
+            <div class="toolbar">
+
+                <input
+                    type="text"
+                    id="searchTask"
+                    placeholder="🔎 Search tasks..."
+                >
+
+                <select id="taskFilter">
+                    <option value="all">All Tasks</option>
+                    <option value="pending">Pending</option>
+                    <option value="completed">Completed</option>
+                </select>
+
+            </div>
+
+            <div id="allTasks" class="full-task-list">
+                <!-- Tasks are added by JavaScript -->
+            </div>
+
+        </section>
+
+        <!-- SUBJECTS -->
+        <section id="subjects" class="page-section">
+
+            <div class="section-heading">
+
+                <div>
+                    <h2>My Subjects</h2>
+                    <p>Keep your laboratory subjects organized.</p>
+                </div>
+
+                <button
+                    class="primary-btn"
+                    id="addSubjectBtn"
+                    onclick="addSubject()">
+                    + Add Subject
+                </button>
+
+            </div>
+
+            <div id="subjectsList" class="subject-grid">
+                <div class="empty-state">Loading subjects...</div>
+            </div>
+
+        </section>
+
+        <!-- NOTES -->
+        <section id="notes" class="page-section">
+
+            <div class="section-heading">
+
+                <div>
+                    <h2>Lab Notes</h2>
+                    <p>Keep important concepts and reminders here.</p>
+                </div>
+
+                <button
+                    class="primary-btn"
+                    id="addNoteBtn"
+                    onclick="addNote()">
+                    + Add Note
+                </button>
+
+            </div>
+
+            <div id="notesList" class="notes-grid">
+                <div class="empty-state">Loading notes...</div>
+            </div>
+
+        </section>
+
+        <!-- PROGRESS -->
+        <section id="progress" class="page-section">
+
+            <div class="section-heading">
+
+                <div>
+                    <h2>My Progress</h2>
+                    <p>Track your laboratory productivity.</p>
+                </div>
+
+            </div>
+
+            <div class="progress-panel">
+
+                <div class="big-progress">
+
+                    <div class="big-circle">
+                        <span id="bigProgress">0%</span>
+                    </div>
+
+                    <div>
+                        <h2>Overall Completion</h2>
+
+                        <p id="bigProgressText">
+                            Complete tasks to increase your progress.
+                        </p>
+                    </div>
+
+                </div>
+
+                <div class="progress-stats">
+
+                    <div>
+                        <strong id="progressTotal">0</strong>
+                        <span>Total Tasks</span>
+                    </div>
+
+                    <div>
+                        <strong id="progressDone">0</strong>
+                        <span>Completed</span>
+                    </div>
+
+                    <div>
+                        <strong id="progressPending">0</strong>
+                        <span>Pending</span>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+        <!-- MY ACCOUNT -->
+        <section id="account" class="page-section">
+
+            <div class="section-heading">
+                <div>
+                    <h2>My Account</h2>
+                    <p>View your Lab Mate account information.</p>
+                </div>
+            </div>
+
+            <div class="panel account-panel">
+
+                <div class="account-avatar">👤</div>
+
+                <h2 id="accountName">Loading...</h2>
+                <p>Lab Mate Student</p>
+
+                <div class="account-details">
+
+                    <div class="account-detail">
+                        <strong>Full Name</strong>
+                        <p id="accountNameDetail">
+                            Loading...
+                        </p>
+                    </div>
+
+                    <div class="account-detail">
+                        <strong>Username</strong>
+                        <p id="accountUsername">
+                            Loading...
+                        </p>
+                    </div>
+
+                    <div class="account-detail">
+                        <strong>Email</strong>
+                        <p id="accountEmail">
+                            Loading...
+                        </p>
+                    </div>
+
+                </div>
+
+                <p id="accountMessage" role="status"></p>
+
+                <button
+                    type="button"
+                    class="primary-btn"
+                    onclick="document.getElementById('logoutBtn').click()">
+                    🚪 Logout
+                </button>
+
+            </div>
+
+        </section>
+
+    </main>
+
+    <!-- ADD TASK MODAL -->
+    <div id="taskModal" class="modal">
+
+        <div class="modal-content">
+
+            <button class="close-btn" id="closeModal">×</button>
+
+            <h2>Add New Lab Task</h2>
+
+            <p>Create a task for your laboratory work.</p>
+
+            <form id="taskForm">
+
+                <label for="taskName">Task Name</label>
+
+                <input
+                    type="text"
+                    id="taskName"
+                    placeholder="e.g. Complete DLD experiment"
+                    required
+                >
+
+                <label for="taskSubject">Subject</label>
+
+                <select id="taskSubject" required>
+                    <option value="">Select subject</option>
+                    <option>Digital Logic Design</option>
+                    <option>Computer Programming</option>
+                    <option>Electrical Engineering</option>
+                    <option>Electronics</option>
+                    <option>Artificial Intelligence</option>
+                    <option>Data Structures</option>
+                </select>
+
+                <label for="taskDeadline">Deadline</label>
+
+                <input type="date" id="taskDeadline" required>
+
+                <button type="submit" class="primary-btn">
+                    Add Task
+                </button>
+
+            </form>
+
+        </div>
+
+    </div>
+
+    <!-- MAIN JAVASCRIPT -->
+    <script src="script.js"></script>
+
+    <!-- LOGIN PROTECTION -->
+    <script>
+        async function checkLogin() {
+            try {
+                const response = await fetch("/api/me");
+
+                if (!response.ok) {
+                    window.location.replace("/login");
+                    return;
+                }
+
+                const data = await response.json();
+
+                if (!data.logged_in) {
+                    window.location.replace("/login");
+                    return;
+                }
+
+                // Fill the account name after login verification.
+                const accountName = document.getElementById("accountName");
+                const accountNameDetail = document.getElementById("accountNameDetail");
+
+                if (accountName && data.user) {
+                    accountName.textContent = data.user.name || "Student";
+                }
+
+                if (accountNameDetail && data.user) {
+                    accountNameDetail.textContent = data.user.name || "Not provided";
+                }
+
+            } catch (error) {
+                console.error("Login check failed:", error);
+                window.location.replace("/login");
+            }
+        }
+
+        checkLogin();
+    </script>
+
+</body>
+</html>

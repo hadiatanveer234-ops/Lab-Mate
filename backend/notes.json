@@ -1,0 +1,14 @@
+[
+    {
+        "id": 1,
+        "title": "DLD Important Concepts",
+        "subject": "Digital Logic Design",
+        "content": "Logic gates, Boolean algebra, binary numbers and Gray code."
+    },
+    {
+        "id": 2,
+        "title": "Programming Lab Notes",
+        "subject": "Computer Programming",
+        "content": "Functions, loops, arrays and basic programming concepts."
+    }
+]

@@ -1,38 +1,78 @@
 # Lab Mate | Student Lab Companion
 
-## About the Project
-Lab Mate is a student lab companion web application designed to help students organize their academic tasks, subjects, and notes in one place.
-
-This project was developed to practice frontend development, backend development, API integration, and data management.
+Lab Mate is a student-focused web application designed to help students organize their academic tasks, subjects, and study notes in one place.
 
 ## Features
-- User signup and login
-- Task management
-- Subject management
-- Notes management
-- My Account section
-- Dark mode
-- Flask backend with JSON-based data storage
 
-## Technologies Used
-- HTML
-- CSS
-- JavaScript
-- Python
-- Flask
-- JSON
+- **Task Management:** Create, view, update, and delete academic tasks.
+- **Subject Management:** Organize subjects for easier academic planning.
+- **Study Notes:** Store and manage study notes.
+- **User Accounts:** Sign up, log in, and manage account details.
+- **Dark Mode:** Switch to a dark interface.
+- **Student Dashboard:** Access academic information from one place.
+
+## Tech Stack
+
+- **Frontend:** HTML, CSS, JavaScript
+- **Backend:** Python, Flask
+- **Data Storage:** JSON files
+- **Version Control:** Git and GitHub
 
 ## Project Structure
-- `backend/` — Flask application and JSON data files
-- `frontend/` — HTML, CSS, and JavaScript files
-- `README.md` — Project documentation
 
-## How to Run
-1. Open the project folder in VS Code.
-2. Activate the Python virtual environment.
-3. Install the required dependencies.
-4. Run the Flask application using `app.py`.
-5. Open the local address displayed in the terminal.
+```text
+Lab-Mate/
+├── backend/
+│   ├── app.py
+│   ├── notes.json
+│   ├── subjects.json
+│   ├── tasks.json
+│   └── users.json
+├── frontend/
+│   ├── index.html
+│   ├── login.html
+│   ├── signup.html
+│   ├── script.js
+│   └── style.css
+├── .gitignore
+└── README.md
+```
 
-## Purpose
-This project was created as a hands-on learning project to develop practical web development and software engineering skills.
+## Getting Started
+
+1. Clone this repository:
+
+   ```bash
+   git clone https://github.com/hadiatanveer234-ops/Lab-Mate.git
+   ```
+
+2. Open the project folder:
+
+   ```bash
+   cd Lab-Mate
+   ```
+
+3. Install Flask in your Python environment:
+
+   ```bash
+   pip install flask
+   ```
+
+4. Follow the backend configuration in `backend/app.py` to run the application locally.
+
+## Learning Goals
+
+This project was developed to practice frontend development, Python backend development, API handling, data management, and Git/GitHub workflows.
+
+## Future Improvements
+
+- Database integration
+- Improved input validation and security
+- Deployment for online access
+- Additional student productivity features
+
+## Author
+
+Hadia Tanveer
+
+Built as a student project for learning and improving web development skills.
